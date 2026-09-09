@@ -1,9 +1,7 @@
+cart = []
 def add_item(item_name, price):
     cart.append({"item": item_name, "price": price})
     print("adding", item_name, "with price", price, "to the cart ...")
-add_item("Apple", 2)
-add_item("Bread", 3)
-add_item("Milk", 4)
 
 def view_cart():
     if len(cart) == 0:
@@ -23,4 +21,23 @@ def remove_item(item_name):
     if not found:
         print(item_name, "was not found in cart.")
 remove_item("milk")
-view_cart()        
+view_cart()  
+def checkout():
+    if len(cart) == 0:
+        print("your cart is empty. nothing to checkout.")
+    else:
+        total = 0 
+        for item in cart:
+            total += item["price"]
+        print("your total is:", total)
+        print("thank you for shopping with pyCart!") 
+
+
+add_item("Apple", 2)
+add_item("Bread", 3)
+add_item("Milk", 4)
+
+view_cart()
+remove_item("Milk")
+view_cart()
+checkout()
